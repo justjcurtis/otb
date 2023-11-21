@@ -1,19 +1,19 @@
 import background from './assets/background.png'
-import SortBox from './components/sortbox'
+import MainView from './views/mainView'
 
 const styles = {
   container: {
     backgroundSize: 'contain',
     backgroundImage: `url(${background})`,
     width: '100vw',
-    height: '100svh',
+    height: '100vh',
   }
 }
 
 function App() {
   return (
     <div style={styles.container}>
-      <SortBox />
+      <MainView />
     </div>
   )
 }
