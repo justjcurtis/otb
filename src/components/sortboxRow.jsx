@@ -16,6 +16,7 @@ const styles = {
     height: 50,
     alignItems: 'center',
     backgroundColor: colours.white,
+    cursor: 'pointer',
   },
   border: {
     borderBottom: `1px solid ${colours.darkBlue}`

@@ -1,4 +1,7 @@
+import { useState } from 'react';
+import sortTypes from '../constants/sortTypes';
 import bookinfo from '../constants/bookingInfo'
+import bookingSort from '../utils/bookingSort';
 import SortBox from '../components/sortbox';
 import BookingCard from '../components/bookingCard';
 
@@ -22,13 +25,23 @@ const styles = {
   }
 }
 const MainView = () => {
+  const [{ sortType, isReversed }, setSort] = useState({
+    sortType: sortTypes.alphabetically,
+    isReversed: false,
+  })
+  const sortedBookings = bookinfo.sort(bookingSort[sortType])
+  if (isReversed) sortedBookings.reverse()
   return (
     <div style={styles.container}>
       <div style={styles.sortBoxContainer}>
-        <SortBox />
+        <SortBox
+          sortType={sortType}
+          isReversed={isReversed}
+          setSort={setSort}
+        />
       </div>
       <div style={styles.cardContainer}>
-        {bookinfo.map((booking, i) => (
+        {sortedBookings.map((booking, i) => (
           <div style={styles.card} key={i}>
             <BookingCard booking={booking} />
           </div>
