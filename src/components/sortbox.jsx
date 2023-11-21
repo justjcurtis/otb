@@ -9,7 +9,6 @@ const styles = {
     display: 'flex',
     height: 150,
     width: 250,
-    backgroundColor: 'red',
     flexDirection: 'column',
   },
 }
