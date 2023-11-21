@@ -13,7 +13,7 @@ const styles = {
   card: {
     height: 270,
     display: 'flex',
-    backgroundColor: 'white',
+    backgroundColor: colours.white,
   },
   img: {
     flex: 1,
@@ -27,7 +27,7 @@ const styles = {
     fontSize: 16,
   },
   location: {
-    color: '#A2A2A2',
+    color: colours.lightGrey,
     fontWeight: '500',
     fontSize: 13,
   },
@@ -91,9 +91,12 @@ const styles = {
 }
 
 const getAttendees = (attendees) => {
-  const adults = attendees.adults && attendees.adults > 0 ? [attendees.adults, 'Adults'] : false
-  const children = attendees.children && attendees.children > 0 ? [attendees.children, 'children'] : false
-  const infants = attendees.infants && attendees.infants > 0 ? [attendees.infants, 'infants'] : false
+  const adults = attendees.adults &&
+    attendees.adults > 0 ? [attendees.adults, 'Adults'] : false
+  const children = attendees.children &&
+    attendees.children > 0 ? [attendees.children, 'children'] : false
+  const infants = attendees.infants &&
+    attendees.infants > 0 ? [attendees.infants, 'infants'] : false
   return (
     <p style={styles.infotext}>
       {adults && <><span style={styles.bold}>{adults[0]} </span>{adults[1]}, </>}
@@ -119,21 +122,38 @@ const BookingCard = ({ booking }) => {
           <Stars starRating={booking.starRating} />
           {getAttendees(booking.attendees)}
           <p style={styles.infotext}>
-            <span style={styles.bold}>{booking.checkIn}</span> for <span style={styles.bold}>{booking.lengthOfStay}</span>
+            <span style={styles.bold}>
+              {booking.checkIn}
+            </span> for <span style={styles.bold}>
+              {booking.lengthOfStay}
+            </span>
           </p>
           <p style={styles.infotext}>
-            departing from <span style={styles.bold}>{booking.departureAirport}</span>
+            departing from
+            <span style={styles.bold}>{booking.departureAirport}</span>
           </p>
           <BookingButton price={booking.price} />
         </div>
       </div>
       <div onClick={handleClick} style={styles.detailsHandle}>
-        <p><span style={styles.bold}>Read {moreOrLess}</span> about this hotel</p>
-        <ChevronIcon style={{ ...styles.chevron, ...isSelected ? { transform: 'rotate(270deg)' } : {} }} />
+        <p><span style={styles.bold}>
+          Read {moreOrLess}
+        </span> about this hotel</p>
+        <ChevronIcon
+          style={{
+            ...styles.chevron,
+            ...isSelected ? { transform: 'rotate(270deg)' } : {}
+          }} />
       </div>
       <div style={{ ...styles.details, ...{ height: isSelected ? 80 : 0 } }}>
-        <p style={{ ...styles.detailsTitle, ...{ opacity: isSelected ? 1 : 0 } }}>Overview</p>
-        <p style={{ ...styles.detailsText, ...{ opacity: isSelected ? 1 : 0 } }}>{booking.overview}</p>
+        <p style={{
+          ...styles.detailsTitle,
+          ...{ opacity: isSelected ? 1 : 0 }
+        }}>Overview</p>
+        <p style={{
+          ...styles.detailsText,
+          ...{ opacity: isSelected ? 1 : 0 }
+        }}>{booking.overview}</p>
       </div>
     </div >
   )

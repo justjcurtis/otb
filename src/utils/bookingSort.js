@@ -1,4 +1,5 @@
 import sortTypes from "../constants/sortTypes"
+
 const bookingSort = {
     [sortTypes.alphabetically]: (a, b) => {
         if (a.title < b.title) return -1

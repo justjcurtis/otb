@@ -10,7 +10,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'center',
-    backgroundColor: '#fedd06',
+    backgroundColor: colours.yellow,
     borderRadius: 5,
     color: colours.darkBlue,
     fontWeight: 'bold',

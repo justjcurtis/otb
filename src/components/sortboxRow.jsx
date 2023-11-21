@@ -16,7 +16,6 @@ const styles = {
     height: 50,
     alignItems: 'center',
     backgroundColor: colours.white,
-    cursor: 'pointer',
   },
   border: {
     borderBottom: `1px solid ${colours.darkBlue}`
@@ -29,16 +28,40 @@ const styles = {
     height: 25,
     width: 25,
     marginLeft: 'auto',
-    color: '#AAA'
+    color: colours.lightGrey
   }
 }
-const SortBoxRow = ({ text, boldText, isSelected, onClick, sortType, hasBorder }) => {
+const SortBoxRow = ({
+  text,
+  boldText,
+  isSelected,
+  onClick,
+  sortType,
+  hasBorder }) => {
   return (
-    <div onClick={() => onClick(sortType)} style={{ ...styles.row, ...hasBorder ? styles.border : {}, ...isSelected ? styles.selected : {} }} >
+    <div
+      onClick={() => onClick(sortType)}
+      style={{
+        ...styles.row,
+        ...hasBorder ? styles.border : {},
+        ...isSelected ? styles.selected : {}
+      }} >
       <p>{text} <span style={styles.bold}>{boldText}</span></p>
-      {sortType == sortTypes.alphabetically && <AZIcon style={{ ...styles.icon, ...isSelected ? { color: "white" } : {} }} />}
-      {sortType == sortTypes.price && <PoundIcon style={{ ...styles.icon, ...isSelected ? { color: "white" } : {} }} />}
-      {sortType == sortTypes.rating && <StarIcon style={{ ...styles.icon, ...isSelected ? { color: "white" } : {} }} />}
+      {sortType == sortTypes.alphabetically &&
+        <AZIcon style={{
+          ...styles.icon,
+          ...isSelected ? { color: colours.white } : {}
+        }} />}
+      {sortType == sortTypes.price &&
+        <PoundIcon style={{
+          ...styles.icon,
+          ...isSelected ? { color: colours.white } : {}
+        }} />}
+      {sortType == sortTypes.rating &&
+        <StarIcon style={{
+          ...styles.icon,
+          ...isSelected ? { color: colours.white } : {}
+        }} />}
     </div>
   )
 }

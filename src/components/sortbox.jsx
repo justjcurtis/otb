@@ -22,9 +22,29 @@ const SortBox = ({ sortType, isReversed, setSort }) => {
   }
   return (
     <div style={styles.container}>
-      <SortBoxRow text="sort" boldText="alphabetically" onClick={handleSortTypeClick} sortType={sortTypes.alphabetically} isSelected={sortType == sortTypes.alphabetically} hasBorder />
-      <SortBoxRow text="sort by" boldText="price" onClick={handleSortTypeClick} sortType={sortTypes.price} isSelected={sortType == sortTypes.price} hasBorder />
-      <SortBoxRow text="sort by" boldText="star rating" onClick={handleSortTypeClick} sortType={sortTypes.rating} isSelected={sortType == sortTypes.rating} />
+      <SortBoxRow
+        text="sort"
+        boldText="alphabetically"
+        onClick={handleSortTypeClick}
+        sortType={sortTypes.alphabetically}
+        isSelected={sortType == sortTypes.alphabetically}
+        hasBorder />
+      <SortBoxRow
+        text="sort 
+        by"
+        boldText="price"
+        onClick={handleSortTypeClick}
+        sortType={sortTypes.price}
+        isSelected={sortType == sortTypes.price}
+        hasBorder />
+      <SortBoxRow
+        text="sort 
+        by"
+        boldText="star 
+        rating"
+        onClick={handleSortTypeClick}
+        sortType={sortTypes.rating}
+        isSelected={sortType == sortTypes.rating} />
     </div >
   )
 }

@@ -1,10 +1,12 @@
 import StarIcon from '../assets/star.svg?react'
+import colours from '../constants/colours'
+
 const styles = {
   star: {
     height: 15,
     width: 15,
-    fill: '#fedd06',
-    color: '#fedd06',
+    fill: colours.yellow,
+    color: colours.yellow,
     marginTop: 5,
     marginBottom: 5,
   }
