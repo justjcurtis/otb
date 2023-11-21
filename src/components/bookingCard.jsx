@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import colours from '../constants/colours';
 import Stars from './stars';
 import BookingButton from './bookingButton';
+import ChevronIcon from '../assets/chevron.svg?react';
 
 const styles = {
   container: {
@@ -33,10 +35,58 @@ const styles = {
     lineHeight: 1.3,
     fontWeight: '300',
     fontSize: 12,
-    marginBottom: 4
+    marginBottom: 4,
   },
   bold: {
     fontWeight: '600'
+  },
+  detailsHandle: {
+    display: 'flex',
+    height: 30,
+    marginTop: -30,
+    backgroundColor: colours.white,
+    width: 200,
+    color: colours.darkBlue,
+    fontSize: 14,
+    alignItems: 'center',
+    cursor: 'pointer',
+    justifyContent: 'space-between',
+    paddingRight: 15,
+    paddingLeft: 15,
+  },
+  chevron: {
+    height: 12,
+    width: 12,
+    transition: 'transform 0.2s',
+    transform: 'rotate(180deg)',
+  },
+  details: {
+    height: 100,
+    backgroundColor: colours.white,
+    width: 700,
+    color: colours.darkBlue,
+    fontSize: 14,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    cursor: 'pointer',
+    transition: 'height 0.2s',
+  },
+  detailsTitle: {
+    fontWeight: 'bold',
+    fontSize: 14,
+    marginBottom: 4,
+    paddingTop: 5,
+    paddingLeft: 15,
+    transition: 'opacity 0.2s',
+  },
+  detailsText: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    lineHeight: 1.3,
+    fontWeight: '300',
+    fontSize: 12,
+    marginBottom: 4,
+    transition: 'opacity 0.2s',
   },
 }
 
@@ -54,6 +104,11 @@ const getAttendees = (attendees) => {
 }
 
 const BookingCard = ({ booking }) => {
+  const [moreOrLess, setMoreOrLess] = useState('more')
+  const handleClick = () => {
+    setMoreOrLess(moreOrLess == 'more' ? 'less' : 'more')
+  }
+  const isSelected = moreOrLess == 'less'
   return (
     <div style={styles.container}>
       <div style={styles.card}>
@@ -71,6 +126,14 @@ const BookingCard = ({ booking }) => {
           </p>
           <BookingButton price={booking.price} />
         </div>
+      </div>
+      <div onClick={handleClick} style={styles.detailsHandle}>
+        <p><span style={styles.bold}>Read {moreOrLess}</span> about this hotel</p>
+        <ChevronIcon style={{ ...styles.chevron, ...isSelected ? { transform: 'rotate(270deg)' } : {} }} />
+      </div>
+      <div style={{ ...styles.details, ...{ height: isSelected ? 80 : 0 } }}>
+        <p style={{ ...styles.detailsTitle, ...{ opacity: isSelected ? 1 : 0 } }}>Overview</p>
+        <p style={{ ...styles.detailsText, ...{ opacity: isSelected ? 1 : 0 } }}>{booking.overview}</p>
       </div>
     </div >
   )
