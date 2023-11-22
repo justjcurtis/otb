@@ -14,10 +14,10 @@ const styles = {
     borderRadius: 5,
     color: colours.darkBlue,
     fontWeight: 'bold',
-    padding: 10,
+    padding: 15,
     lineHeight: 1.2,
     cursor: 'pointer',
-    marginTop: 20,
+    marginTop: 15,
   },
   price: {
     fontSize: 24,

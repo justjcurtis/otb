@@ -8,7 +8,7 @@ import BookingCard from '../components/bookingCard';
 const styles = {
   container: {
     display: 'flex',
-    padding: 30,
+    padding: 60,
   },
   sortBoxContainer: {
     display: 'flex',

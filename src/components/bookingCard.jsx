@@ -7,7 +7,7 @@ import ChevronIcon from '../assets/chevron.svg?react';
 const styles = {
   container: {
     display: 'flex',
-    width: 700,
+    width: 800,
     flexDirection: 'column',
   },
   card: {
@@ -20,7 +20,7 @@ const styles = {
   },
   info: {
     flex: 1,
-    padding: 15,
+    padding: 20,
   },
   title: {
     color: colours.darkBlue,
@@ -51,8 +51,8 @@ const styles = {
     alignItems: 'center',
     cursor: 'pointer',
     justifyContent: 'space-between',
-    paddingRight: 15,
-    paddingLeft: 15,
+    paddingRight: 20,
+    paddingLeft: 20,
   },
   chevron: {
     height: 12,
@@ -63,7 +63,7 @@ const styles = {
   details: {
     height: 100,
     backgroundColor: colours.white,
-    width: 700,
+    width: '100%',
     color: colours.darkBlue,
     fontSize: 14,
     alignItems: 'center',
@@ -76,17 +76,18 @@ const styles = {
     fontSize: 14,
     marginBottom: 4,
     paddingTop: 5,
-    paddingLeft: 15,
+    paddingLeft: 20,
     transition: 'opacity 0.2s',
   },
   detailsText: {
-    paddingLeft: 15,
-    paddingRight: 15,
+    paddingLeft: 20,
+    paddingRight: 20,
     lineHeight: 1.3,
-    fontWeight: '300',
-    fontSize: 12,
+    fontWeight: '400',
+    fontSize: 13,
     marginBottom: 4,
     transition: 'opacity 0.2s',
+    color: colours.darkGrey,
   },
 }
 
@@ -137,7 +138,7 @@ const BookingCard = ({ booking }) => {
           </p>
           <p style={styles.infotext}>
             departing from
-            <span style={styles.bold}>{booking.departureAirport}</span>
+            <span style={styles.bold}> {booking.departureAirport}</span>
           </p>
           <BookingButton price={booking.price} />
         </div>
@@ -152,7 +153,7 @@ const BookingCard = ({ booking }) => {
             ...isSelected ? { transform: 'rotate(270deg)' } : {}
           }} />
       </div>
-      <div style={{ ...styles.details, ...{ height: isSelected ? 80 : 0 } }}>
+      <div style={{ ...styles.details, ...{ height: isSelected ? 90 : 0 } }}>
         <p style={{
           ...styles.detailsTitle,
           ...{ opacity: isSelected ? 1 : 0 }
