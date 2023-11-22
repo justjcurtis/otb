@@ -116,7 +116,7 @@ const getAttendees = (attendees) => {
 
 const BookingCard = ({ booking }) => {
   const [moreOrLess, setMoreOrLess] = useState('more')
-  const handleClick = () => {
+  const handleDetailsClick = () => {
     setMoreOrLess(moreOrLess == 'more' ? 'less' : 'more')
   }
   const isSelected = moreOrLess == 'less'
@@ -143,7 +143,7 @@ const BookingCard = ({ booking }) => {
           <BookingButton price={booking.price} />
         </div>
       </div>
-      <div onClick={handleClick} style={styles.detailsHandle}>
+      <div onClick={handleDetailsClick} style={styles.detailsHandle}>
         <p><span style={styles.bold}>
           Read {moreOrLess}
         </span> about this hotel</p>
