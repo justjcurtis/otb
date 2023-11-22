@@ -92,11 +92,18 @@ const styles = {
 
 const getAttendees = (attendees) => {
   const adults = attendees.adults &&
-    attendees.adults > 0 ? [attendees.adults, 'Adults'] : false
+    attendees.adults > 0 ?
+    [attendees.adults, attendees.adults == 1 ? 'Adult' : 'Adults'] : []
+
+
   const children = attendees.children &&
-    attendees.children > 0 ? [attendees.children, 'children'] : false
+    attendees.children > 0 ?
+    [attendees.children, attendees.children == 1 ? 'Child' : 'Children'] : []
+
   const infants = attendees.infants &&
-    attendees.infants > 0 ? [attendees.infants, 'infants'] : false
+    attendees.infants > 0 ?
+    [attendees.infants, attendees.infants == 1 ? 'Infant' : 'Infants'] : []
+
   return (
     <p style={styles.infotext}>
       {adults && <><span style={styles.bold}>{adults[0]} </span>{adults[1]}, </>}
