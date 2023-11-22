@@ -6,7 +6,8 @@ const styles = {
     backgroundSize: 'contain',
     backgroundImage: `url(${background})`,
     width: '100vw',
-    height: '100vh',
+    minHeight: '100vh',
+    transition: 'height 0.2s',
   }
 }
 
