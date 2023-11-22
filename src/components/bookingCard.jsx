@@ -119,6 +119,10 @@ const BookingCard = ({ booking }) => {
   const handleDetailsClick = () => {
     setMoreOrLess(moreOrLess == 'more' ? 'less' : 'more')
   }
+  const handleBookingClick = () => {
+    // TODO: handle navigation to booking page
+    console.log('navigate to booking page for', booking.title, booking.id)
+  }
   const isSelected = moreOrLess == 'less'
   return (
     <div style={styles.container}>
@@ -140,7 +144,7 @@ const BookingCard = ({ booking }) => {
             departing from
             <span style={styles.bold}> {booking.departureAirport}</span>
           </p>
-          <BookingButton price={booking.price} />
+          <BookingButton price={booking.price} onClick={handleBookingClick} />
         </div>
       </div>
       <div onClick={handleDetailsClick} style={styles.detailsHandle}>
