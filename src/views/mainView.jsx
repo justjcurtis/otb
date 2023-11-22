@@ -21,7 +21,7 @@ const styles = {
     flexDirection: 'column',
   },
   card: {
-    marginBottom: 20,
+    marginBottom: 25,
   }
 }
 const MainView = () => {
