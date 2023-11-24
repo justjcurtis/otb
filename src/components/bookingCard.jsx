@@ -45,7 +45,7 @@ const styles = {
     height: 30,
     marginTop: -30,
     backgroundColor: colours.white,
-    width: 170,
+    width: 200,
     color: colours.darkBlue,
     fontSize: 13,
     alignItems: 'center',
